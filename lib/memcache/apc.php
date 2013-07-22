@@ -46,7 +46,7 @@ class APC extends Cache {
 				}
 			}
 		} else {
-			$ns = str_replace('/', '\/', $ns);
+			$ns = preg_quote($ns);
 			$iter = new APCIterator('/^'.$ns.'/');
 			return apc_delete($iter);
 		}
